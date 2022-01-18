@@ -27,9 +27,10 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Home" component={Home} />
-
       </Stack.Navigator>
     </NavigationContainer>
+    
+ 
     </ApolloProvider>
  )
 }
@@ -43,3 +44,5 @@ const styles = StyleSheet.create({
   },
 });
 AppRegistry.registerComponent('MyApplication', () => App);
+
+

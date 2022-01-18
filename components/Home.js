@@ -5,9 +5,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { graphql } from '@apollo/react-hoc';
-import { gql, useQuery } from '@apollo/client';
-
-
+import { gql, useQuery } from '@apollo/client'
 
 const Login = ({ navigation }) => {
 
@@ -22,6 +20,17 @@ const Login = ({ navigation }) => {
     } 
   },
   `);
+  const Settings = ({ navigation }) => {
+  
+    return (
+      <ScreenContainer>
+        <Text>Profile Screen</Text>
+        <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
+        <Button title="Sign Out" onPress={() => signOut()} />
+      </ScreenContainer>
+    );
+  };
+
 
 
   const isVerifiedUser= () =>{
@@ -39,40 +48,12 @@ const Login = ({ navigation }) => {
     navigation.navigate('SignUp');
   }
   return (
-    <View style={{ flex: 1, marginTop: '50%' }}>
+    <View>
       <Text>
-          WELCOME HOME!
+          WELCOME HOME!ddddd
       </Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignContent: 'center',
-    flex: 1,
-    marginTop: 50
-  },
-  formTextInput: {
-    height: 40,
-    margin: 12,
-    borderWidth: 3,
-    padding: 10,
-
-  },
-  submitButton: {
-    height: 10,
-    width: 10,
-    borderWidth: 1,
-    padding: 10,
-    backgroundColor: '#FFFFFF',
-    color: '#FFFFFF',
-    marginTop: 40,
-  }
-});
 
 export default Login;
