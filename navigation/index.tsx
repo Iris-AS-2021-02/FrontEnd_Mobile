@@ -26,6 +26,8 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
+import StatusScreen from "../screens/StatusScreen";
+import CameraScreen from "../screens/CameraScreen";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -41,7 +43,7 @@ export default function Navigation({
   colorScheme: ColorSchemeName;
 }) {
   return (
-    <NavigationContainer
+    <NavigationContainer independent={true}
       linking={LinkingConfiguration}
       theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
     >
@@ -58,7 +60,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator
+    <Stack.Navigator 
       screenOptions={{
         headerStyle: {
           backgroundColor: Colors.light.tint,
@@ -68,7 +70,7 @@ function RootNavigator() {
         headerTitleStyle: {
           fontWeight: "bold",
         },
-      }}
+      }} 
     >
       <Stack.Screen
         name="Root"
@@ -136,7 +138,7 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="Camera"
-        component={TabTwoScreen}
+        component={CameraScreen}
         options={{
           tabBarIcon: ({color}) =><Fontisto name="camera" color={color} size={20}/>,
           tabBarLabel: () =>null
@@ -145,15 +147,15 @@ function BottomTabNavigator() {
 
       <BottomTab.Screen
         name="Chats"
-        component={TabTwoScreen}
+        component={TabOneScreen}
       />
 
       <BottomTab.Screen
-        name="Calls"
-        component={TabTwoScreen}
+        name="Status"
+        component={StatusScreen}
       />
        <BottomTab.Screen
-        name="Status"
+        name="Calls"
         component={TabTwoScreen}
         />
     </BottomTab.Navigator>
